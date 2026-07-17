@@ -1,0 +1,7 @@
+[section]
+somekey = somevalue
+someotherkey=someothervalue
+
+[anothersection]
+key123 = "what the heck?"
+key456="yet another one here"

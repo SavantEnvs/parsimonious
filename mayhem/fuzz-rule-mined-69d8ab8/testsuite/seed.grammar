@@ -1,0 +1,15 @@
+expr        = (entry / emptyline)*
+entry       = section pair*
+
+section     = lpar word rpar ws
+pair        = key equal value ws?
+
+key         = word+
+value       = (word / quoted)+
+word        = ~r"[-\w]+"
+quoted      = ~'"[^\"]+"'
+equal       = ws? "=" ws?
+lpar        = "["
+rpar        = "]"
+ws          = ~"\s*"
+emptyline   = ws+

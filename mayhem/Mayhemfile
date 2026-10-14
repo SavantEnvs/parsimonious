@@ -1,0 +1,15 @@
+# Mayhem target: parsimonious PEG grammar parser (Atheris/libFuzzer harness).
+# The cmd binary is the compiled ELF launcher that drives mayhem/fuzz_rule.py; Atheris
+# instruments the parsimonious library so the run records coverage (edges).
+project: savantenvs/parsimonious
+# seed-from: https://app.mayhem.security/savantenvs/parsimonious/fuzz-rule
+target: fuzz-rule-mined-69d8ab8
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-rule-mined-69d8ab8/testsuite
+
+cmds:
+  - cmd: /mayhem/fuzz_rule
+    libfuzzer: true
+    timeout: 12
